@@ -1,0 +1,74 @@
+### 고객 정보 관리 API
+
+# 1. 고객 등록
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+  "name": "Robbie",
+  "email": "Robbie@example.com",
+  "phone": "010-1234-5678",
+  "address": "123 Seoul"
+}
+
+### 고객 조회
+GET http://localhost:8080/api/customers/1
+
+### 고객 정보 수정
+PUT http://localhost:8080/api/customers/1
+Content-Type: application/json
+
+{
+  "name": "Robbie Updated",
+  "email": "Robbie@example.com Updated",
+  "phone": "010-1234-5678 Updated",
+  "address": "123 Seoul Updated"
+}
+
+### 고객 삭제
+DELETE http://localhost:8080/api/customers/1
+
+---
+
+### 계좌 관리 API
+
+# 2. 계좌 생성
+POST http://localhost:8080/api/accounts
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "accountType": "SAVINGS",
+  "initialDeposit": 1000.0
+}
+
+### 계좌 조회
+GET http://localhost:8080/api/accounts/101
+
+### 계좌 잔액 조회
+GET http://localhost:8080/api/accounts/101/balance
+
+### 계좌 삭제
+DELETE http://localhost:8080/api/accounts/101
+
+---
+
+### 거래 내역 API
+
+# 3. 거래 생성
+POST http://localhost:8080/api/transactions
+Content-Type: application/json
+
+{
+  "accountId": 101,
+  "transactionType": "DEPOSIT",
+  "amount": 1000.0
+}
+
+### 거래 내역 조회
+GET http://localhost:8080/api/transactions?customerId=1&startDate=2024-01-01&endDate=2024-01-31
+
+### 특정 거래 조회
+GET http://localhost:8080/api/transactions/1001
+
+---
