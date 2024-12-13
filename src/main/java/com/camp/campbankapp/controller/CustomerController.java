@@ -43,7 +43,7 @@ public class CustomerController {
     }
 
     // 고객 조회 : URL "/api/customers/{customerId}" 고객 아이디를 기준으로 조회 (특정 아이디로 조회, 수정, 삭제 가능)
-    @GetMapping("/{customerId}") // 서버로부터 데이터를 조회할 때 사용 - 쿼리 파라미터 또는 경로 변수를 통해 데이터 전달
+    @GetMapping("/{customerId}") // 서버로부터 데이터를 조회할 때 사용 - 경로 변수를 통해 데이터 전달
     public ResponseEntity<CustomerResponseDto> getCustomer(@PathVariable Long customerId) {
 
         // 하드 코딩된 고객 데이터를 응답을 반환
@@ -77,7 +77,7 @@ public class CustomerController {
     }
 
     // 고객 삭제 : URL "/api/customers/{customerId}" 로 Delete 요청을 보내면 서버는 해당 Id에 해당하는 고객 삭제
-    @DeleteMapping("/{customerId}") // HTTP DELETE 요청을 처리 - 서버에 리소스를 삭제할 때 사용, 경로 변수나 쿼리 파라미터로 삭제할 대상 식별 (ex. Id)
+    @DeleteMapping("/{customerId}") // HTTP DELETE 요청을 처리 - 서버에 리소스를 삭제할 때 사용, 경로 변수로 삭제할 대상 식별 (ex. Id)
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long customerId) {
         // 삭제 완료 후 상태코드 204 반환
         return ResponseEntity.noContent().build();
